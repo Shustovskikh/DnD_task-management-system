@@ -1,0 +1,227 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.board {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+  overflow-x: auto;
+  align-items: flex-start;
+}
+
+.column {
+  background-color: #FFFAF0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  width: 300px;
+  margin: 0 25px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+}
+
+.column-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FF4500;
+  margin-bottom: 10px;
+}
+
+.card-container {
+  flex-grow: 1;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: grab;
+  transition: box-shadow 0.3s;
+  position: relative;
+}
+
+.card.expanded .card-text {
+  max-height: none;
+  overflow: visible;
+  white-space: normal;
+}
+
+.card-text {
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card-actions-left {
+  display: flex;
+  gap: 10px;
+}
+
+.card-actions-right {
+  display: flex;
+}
+
+.card .card-actions .edit-btn,
+.card .card-actions .expand-btn,
+.card .card-actions .delete-btn {
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  transition: color 0.3s;
+}
+
+.card .card-actions .edit-btn:hover {
+  color: #0079bf;
+}
+
+.card .card-actions .expand-btn:hover {
+  color: #28a745;
+}
+
+.card .card-actions .delete-btn:hover {
+  color: #dc3545;
+}
+
+.add-card-btn {
+  background-color: transparent;
+  border: none;
+  color: #0079bf;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0;
+  text-align: left;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.add-card-input {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.add-card-input.active {
+  display: flex;
+}
+
+.add-card-input textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: vertical;
+  max-height: 200px;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.add-card-input .input-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.char-counter {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 5px;
+}
+
+.char-counter.red {
+  color: #dc3545;
+}
+
+.add-card-input .add-btn,
+.add-card-input .cancel-btn,
+.card-content .save-btn,
+.card-content .close-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  margin-right: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-card-input .add-btn {
+  background-color: #28a745;
+}
+
+.add-card-input .add-btn:hover {
+  background-color: #218838;
+}
+
+.add-card-input .cancel-btn {
+  background-color: #dc3545;
+}
+
+.add-card-input .cancel-btn:hover {
+  background-color: #c82333;
+}
+
+.card-content .save-btn {
+  background-color: #28a745;
+}
+
+.card-content .save-btn:hover {
+  background-color: #218838;
+}
+
+.card-content .close-btn {
+  background-color: #dc3545;
+}
+
+.card-content .close-btn:hover {
+  background-color: #c82333;
+}
+
+.add-card-input .error {
+  border-color: #dc3545;
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+.error {
+  border: 2px solid red !important;
+}
+
+.card-placeholder {
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: none;
+}
